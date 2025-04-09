@@ -1,0 +1,249 @@
+/* Reseta estilos padrão */
+* {
+    margin: 0; /* Remove as margens padrões de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui o padding e a borda nas dimensões do elemento */
+}
+
+body {
+    background: linear-gradient(5deg, rgb(0, 0, 49), rgb(97, 16, 204), rgb(1, 1, 49)); /* Define um fundo com um gradiente de cores */
+    width: 100%; /* A largura do corpo é 100% da tela */
+    height: 100%; /* A altura do corpo é 100% da tela */
+    display: flex; /* Usa o modelo de layout flexbox */
+    flex-direction: column; /* Organiza os itens em uma coluna */
+    align-items: center; /* Alinha os itens horizontalmente no centro */
+    position: relative; /* Define a posição como relativa para permitir posicionamento absoluto dentro dele */
+    padding: 2%; /* Adiciona um padding de 2% em torno do conteúdo */
+}
+
+h1 {
+    color: rgb(255, 255, 255); /* Define a cor do texto como branca */
+    font-family: 'Pacifico', cursive; /* Define a fonte como Pacifico (uma fonte cursiva) */
+    font-size: 24px; /* Define o tamanho da fonte como 24px */
+    position: absolute; /* Posiciona o título de forma absoluta na tela */
+    top: 40px; /* Define a distância do topo da página */
+    left: 35px; /* Define a distância da borda esquerda */
+}
+
+/* Correções e ajustes para a div .cima */
+.cima {
+    display: flex; /* Organiza os itens dentro da div usando flexbox */
+    justify-content: flex-end; /* Alinha os itens à direita */
+    position: absolute; /* Posiciona a div de forma absoluta na tela */
+    top: -15px; /* Fixa a div no topo */
+    right: 10px; /* Distância da borda direita */
+    width: 100%; /* Ocupa toda a largura da tela */
+    padding: 20px; /* Adiciona espaçamento interno */
+}
+
+.cima .coração,
+.cima .seta {
+    margin-left: 10px; /* Adiciona espaçamento à esquerda de cada item dentro de .cima */
+}
+
+/* Estilo da imagem de coração */
+.coração img {
+    height: 125px; /* Define a altura da imagem do coração */
+    width: auto; /* Define a largura como automática para manter a proporção */
+    transition: all 0.3s ease; /* Adiciona uma transição suave de 0.3s para qualquer alteração de estilo */
+    cursor: pointer; /* Muda o cursor para indicar que a imagem é clicável */
+}
+
+@keyframes pulse {
+    0%, 100% {transform: scale(1);} /* Tamanho normal */
+    50% {transform: scale(1.4);} /* Tamanho aumentado */
+}
+
+.coração {
+    animation: pulse 2s ease infinite; /* Animação com o nome 'pulse' */
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.seta {
+    animation: spin 2s ease infinite;
+}
+
+/* Estilo alterado após o clique */
+.coração.clicked img {
+    filter: hue-rotate(180deg); /* Aplica uma rotação no matiz da cor da imagem ao clicar (muda a cor) */
+}
+
+/* Estilo da seta (sem alterações no código original) */
+.cima img {
+    height: 125px; /* Define a altura das imagens dentro da div .cima */
+    width: auto; /* Mantém a largura automática para manter a proporção */
+}
+
+/* Estilização do stories-container */
+.stories-container {
+    display: flex; /* Usa flexbox para organizar os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente */
+    gap: 15px; /* Adiciona um espaço de 15px entre os itens */
+    overflow-x: auto; /* Permite rolar os itens horizontalmente se ultrapassarem o tamanho da tela */
+    padding: 20px; /* Adiciona um padding de 20px */
+    width: 90%; /* Define a largura do contêiner como 90% da largura da tela */
+    margin-top: 150px; /* Adiciona uma margem de 150px no topo para espaçar da parte superior */
+}
+
+.story {
+    width: 80px; /* Define a largura do item de story */
+    height: 80px; /* Define a altura do item de story */
+    border-radius: 50%; /* Torna o item de story circular */
+    overflow: hidden; /* Garante que qualquer conteúdo que ultrapasse o limite do círculo seja ocultado */
+    border: 2px solid #f0f0f0; /* Adiciona uma borda de 2px de cor clara */
+    transition: transform 0.3s ease; /* Adiciona uma transição suave de 0.3s para transformações */
+}
+
+.story:hover {
+    transform: scale(1.5); /* Aumenta o tamanho do story para 1.5x ao passar o mouse */
+}
+
+.story-image {
+    width: 100%; /* Faz a imagem ocupar toda a largura do item de story */
+    height: 100%; /* Faz a imagem ocupar toda a altura do item de story */
+    object-fit: cover; /* Garante que a imagem cubra toda a área do círculo sem distorção */
+    border-radius: 50%; /* Torna a imagem circular */
+}
+
+/* Remove a formatação padrão de links */
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz com que o link ocupe o espaço da div inteira */
+    width: 100%; /* Garante que o link tenha a mesma largura da div .imagens-container */
+    height: 100%; /* Garante que o link tenha a mesma altura da div .imagens-container */
+}
+
+/* Agora, garanta que a .imagens-container seja a área clicável */
+.imagens-container {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 2px;
+    width: 80%; /* Largura do contêiner (ajustável conforme necessário) */
+    margin-top: 50px;
+    position: relative;
+    aspect-ratio: 1; /* Mantém a proporção quadrada do container */
+    max-width: 1000px; /* Limita a largura máxima para telas maiores */
+    min-width: 300px; /* Define uma largura mínima para telas pequenas */
+}
+
+.imagem-item {
+    width: 100%; /* A largura é 100% do contêiner */
+    height: 100%; /* A altura é 100% do contêiner */
+    border: 2px solid #259e07; /* Borda ao redor da imagem */
+    overflow: hidden; /* Garante que a imagem não ultrapasse as bordas */
+    position: relative; /* Para controle do posicionamento do link */
+    aspect-ratio: 1; /* Mantém a proporção quadrada da imagem */
+}
+
+.imagens-container a {
+    position: absolute; /* Faz com que o link ocupe o espaço exato dentro da .imagem-item */
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+}
+
+.imagem {
+    width: 100%; /* Faz a imagem ocupar toda a largura do item de imagem */
+    height: 100%; /* Faz a imagem ocupar toda a altura do item de imagem */
+    object-fit: cover; /* Garante que a imagem cubra toda a área do item sem distorção */
+}
+
+h2 {
+    padding: 25px;
+    color:aliceblue
+}
+
+p {
+    font-family: cursive;
+    color: #f0f0f0;
+    padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.questionario-container {
+    margin-bottom: 30px;
+    background-color: #414430;
+    border-radius: 1%;
+    padding: 25px;
+    width: 80%;
+    margin: 0 auto; /* Centraliza o container */
+}
+
+.questionario.noivo, .questionario.noiva {
+    margin-bottom: 30px; /* Espaço entre os formulários */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.questionario.noivo {
+    background-color: aqua;
+}
+
+.questionario.noiva {
+    background-color: #f15add;
+}
+
+.pergunta {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Banner fixo */
+.banner {
+    position: fixed; /* Fixa o banner na tela, mesmo com rolagem */
+    bottom: 0; /* Posiciona o banner na parte inferior da tela */
+    right: 0; /* Alinha o banner à direita da tela */
+    left: 0; /* Faz o banner ocupar toda a largura da tela */
+    background: linear-gradient(5deg, #07abec, #a6afa2, #0b99db); /* Aplica um fundo gradiente no banner */
+}
+
+h4 {
+    display: flex; /* Usa flexbox para organizar os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente */
+}
