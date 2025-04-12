@@ -33,16 +33,14 @@ const respostasCorretas = {
         "bebida_noivo": "Chá",
         "animal": "Cachorro",
         "atividade_noivo": "Praticar esportes",
-        "filme_noivo": "Ação",
-        "Local_noiva": "Ilha deserta"
+        "filme_noivo": "Ação"
     },
     noiva: {
         "cor-favorita-noiva": "Lilás",
         "bebida_noiva": "Chá",
         "animal_noiva": "Gato",
         "atividade_noiva": "Assistir TV",
-        "filme_noiva": "Românce",
-        "Local_noiva": "Shopping"
+        "filme_noiva": "Românce"
     }
 };
 
@@ -54,34 +52,63 @@ function calcularPontuacao() {
     let pontuacaoNoivo = 0;
     let pontuacaoNoiva = 0;
     let todasRespondidas = true;
+    const camposNaoRespondidos = [];
 
+    // Verificando as perguntas do noivo
     for (const campo in respostasCorretas.noivo) {
         const resposta = respostasCorretas.noivo[campo];
-        const inputSelecionado = formNoivo.querySelector([name="${campo}"]:checked) ||
-                                 formNoivo.querySelector([name="${campo}"]);
+        let inputSelecionado;
 
-        if (!inputSelecionado || inputSelecionado.value === "") {
-            todasRespondidas = false;
+        // Verificando se o campo é do tipo select
+        if (campo.includes('cor-favorita-noivo')) {
+            inputSelecionado = formNoivo.querySelector([name="${campo}"]);
+        } else {
+            inputSelecionado = formNoivo.querySelector([name="${campo}"]:checked);
         }
 
-        if (inputSelecionado && inputSelecionado.value === resposta) {
+        // Verificando se o campo foi respondido
+        if (!inputSelecionado || (inputSelecionado && inputSelecionado.value === "")) {
+            todasRespondidas = false;
+            camposNaoRespondidos.push(Pergunta do Noivo sobre ${campo.replace(/-/g, ' ').replace(/_noivo/g, '')});
+        } else if (inputSelecionado.value === resposta) {
             pontuacaoNoivo++;
         }
     }
 
+    // Verificando as perguntas da noiva
     for (const campo in respostasCorretas.noiva) {
         const resposta = respostasCorretas.noiva[campo];
-        const inputSelecionado = formNoiva.querySelector([name="${campo}"]:checked) ||
-                                 formNoiva.querySelector([name="${campo}"]);
+        let inputSelecionado;
 
-        if (!inputSelecionado || inputSelecionado.value === "") {
-            todasRespondidas = false;
+        // Verificando se o campo é do tipo select
+        if (campo.includes('cor-favorita-noiva')) {
+            inputSelecionado = formNoiva.querySelector([name="${campo}"]);
+        } else {
+            inputSelecionado = formNoiva.querySelector([name="${campo}"]:checked);
         }
 
-        if (inputSelecionado && inputSelecionado.value === resposta) {
+        // Verificando se o campo foi respondido
+        if (!inputSelecionado || (inputSelecionado && inputSelecionado.value === "")) {
+            todasRespondidas = false;
+            camposNaoRespondidos.push(Pergunta da Noiva sobre ${campo.replace(/-/g, ' ').replace(/_noiva/g, '')});
+        } else if (inputSelecionado.value === resposta) {
             pontuacaoNoiva++;
         }
     }
+
+    // Exibindo o resultado final
+    if (todasRespondidas) {
+        resultadoDiv.innerHTML = `
+            <p>Pontuação do Noivo: <strong>${pontuacaoNoivo}/5</strong></p>
+            <p>Pontuação da Noiva: <strong>${pontuacaoNoiva}/5</strong></p>
+        `;
+    } else {
+        resultadoDiv.innerHTML = <p style="color: red;">Por favor, responda todas as perguntas antes de enviar.</p>;
+        if (camposNaoRespondidos.length > 0) {
+            resultadoDiv.innerHTML += <p style="color: orange;">Campos não respondidos: ${camposNaoRespondidos.join(', ')}</p>;
+        }
+    }
+}
 
    
 
