@@ -1,45 +1,92 @@
-const imagensContainer = document.querySelector('.imagens-container'); 
-// Seleciona o contêiner das imagens com a classe '.imagens-container' e armazena em uma variável
+// Controle de imagens
+const imagensContainer = document.querySelector('.imagens-container');
+const imagens = document.querySelectorAll('.imagem');
+let currentIndex = 0;
 
-const imagens = document.querySelectorAll('.imagem'); 
-// Seleciona todas as imagens com a classe '.imagem' e armazena em uma lista de NodeList
-
-let currentIndex = 0; 
-// Inicializa o índice da imagem atual como 0 (primeira imagem)
-
-imagensContainer.addEventListener('click', () => { 
-    // Adiciona um evento de clique no contêiner de imagens
-    // Quando o contêiner é clicado, executa a função abaixo
-
-    imagens[currentIndex].style.display = 'none'; 
-    // Esconde a imagem atualmente visível (a imagem de índice 'currentIndex')
-
-    currentIndex = (currentIndex + 1) % imagens.length; 
-    // Calcula o índice da próxima imagem (incrementa o índice atual e usa o operador módulo para voltar ao início quando ultrapassar o número de imagens)
-
-    imagens[currentIndex].style.display = 'block'; 
-    // Exibe a próxima imagem com o índice calculado
+imagens.forEach((img, index) => {
+    if (index !== 0) img.style.display = 'none';
 });
 
-// Navegação para a próxima ou anterior imagem no modal
-fullScreenModal.addEventListener('click', (event) => { 
-    // Adiciona um evento de clique no modal de tela cheia
+imagensContainer.addEventListener('click', () => {
+    imagens[currentIndex].style.display = 'none';
+    currentIndex = (currentIndex + 1) % imagens.length;
+    imagens[currentIndex].style.display = 'block';
+});
 
-    if (event.target === fullScreenImg) { 
-        // Verifica se o alvo do clique é a imagem (fullScreenImg)
-        currentIndex++; 
-        // Avança para a próxima imagem
+// Comentei isso porque as variáveis fullScreenModal e fullScreenImg não foram declaradas
+// const fullScreenModal = document.getElementById('fullScreenModal');
+// const fullScreenImg = document.getElementById('fullScreenImg');
 
-        if (currentIndex >= imagens.length) { 
-            // Verifica se o índice atual ultrapassou o número de imagens
-            currentIndex = 0; 
-            // Se ultrapassou, volta para a primeira imagem
-        }
-        showImage(currentIndex); 
-        // Chama a função 'showImage' para exibir a imagem no novo índice
-    } else if (event.target === fullScreenModal) { 
-        // Se o clique for fora da imagem (no próprio modal)
-        fullScreenModal.style.display = 'none'; 
-        // Fecha o modal definindo seu estilo 'display' como 'none'
+// fullScreenModal.addEventListener('click', (event) => {
+//     if (event.target === fullScreenImg) {
+//         currentIndex = (currentIndex + 1) % imagens.length;
+//         showImage(currentIndex);
+//     } else if (event.target === fullScreenModal) {
+//         fullScreenModal.style.display = 'none';
+//     }
+// });
+
+// Questionário
+const respostasCorretas = {
+    noivo: {
+        "cor-favorita-noivo": "Azul",
+        "bebida_noivo": "Chá",
+        "animal": "Cachorro",
+        "atividade_noivo": "Praticar esportes",
+        "filme_noivo": "Ação",
+        "Local_noiva": "Ilha deserta"
+    },
+    noiva: {
+        "cor-favorita-noiva": "Lilás",
+        "bebida_noiva": "Chá",
+        "animal_noiva": "Gato",
+        "atividade_noiva": "Assistir TV",
+        "filme_noiva": "Românce",
+        "Local_noiva": "Shopping"
     }
-});
+};
+
+function calcularPontuacao() {
+    const formNoivo = document.querySelector(".questionario.noivo");
+    const formNoiva = document.querySelector(".questionario.noiva");
+    const resultadoDiv = document.getElementById("resultado");
+
+    let pontuacaoNoivo = 0;
+    let pontuacaoNoiva = 0;
+    let todasRespondidas = true;
+
+    for (const campo in respostasCorretas.noivo) {
+        const resposta = respostasCorretas.noivo[campo];
+        const inputSelecionado = formNoivo.querySelector([name="${campo}"]:checked) ||
+                                 formNoivo.querySelector([name="${campo}"]);
+
+        if (!inputSelecionado || inputSelecionado.value === "") {
+            todasRespondidas = false;
+        }
+
+        if (inputSelecionado && inputSelecionado.value === resposta) {
+            pontuacaoNoivo++;
+        }
+    }
+
+    for (const campo in respostasCorretas.noiva) {
+        const resposta = respostasCorretas.noiva[campo];
+        const inputSelecionado = formNoiva.querySelector([name="${campo}"]:checked) ||
+                                 formNoiva.querySelector([name="${campo}"]);
+
+        if (!inputSelecionado || inputSelecionado.value === "") {
+            todasRespondidas = false;
+        }
+
+        if (inputSelecionado && inputSelecionado.value === resposta) {
+            pontuacaoNoiva++;
+        }
+    }
+
+   
+
+    resultadoDiv.innerHTML = `
+        <p>Pontuação do Noivo: <strong>${pontuacaoNoivo}/6</strong></p>
+        <p>Pontuação da Noiva: <strong>${pontuacaoNoiva}/6</strong></p>
+    `;
+}
