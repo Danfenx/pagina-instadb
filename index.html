@@ -1,156 +1,153 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html> <!-- Declara que este é um documento HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InstaD&B</title>
-  <link rel="stylesheet" href="index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8"> <!-- Define a codi66ficação de caracteres como UTF-8, que suporta caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define o layout da página para ser responsivo em dispositivos móveis -->
+    <title>InstaD&B</title> <!-- Define o título da página (aparece na aba do navegador) -->
+    <link rel="stylesheet" href="index.css"> <!-- Conecta o arquivo CSS externo chamado index.css para estilizar a página -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> <!-- Carrega a fonte "Pacifico" do Google Fonts para uso no estilo da página -->
 </head>
 
 <body>
-  <h1>InstaD&B</h1>
+    <h1>InstaD&B</h1> <!-- Exibe um título principal na página com o texto "InstaD&B" -->
 
-  <!-- Parte superior com ícones -->
-  <div class="cima">
-    <div class="coração">
-      <img src="coracao1.png" alt="Coração" id="coracao" />
+    <!-- Div cima (acima da stories-container) -->
+    <div class="cima">
+        <div class="coração">
+            <img src="coração 1.png" alt="Coração" id="coracao"> <!-- Adicionando um id para a imagem -->
+        </div>
+        <div class="seta"> <!-- Cria um div com a classe "seta" -->
+            <img src="seta 1.png" alt="Seta"> <!-- Exibe uma imagem de uma seta com o arquivo "seta 1.png" -->
+        </div>
     </div>
-    <div class="seta">
-      <img src="seta1.png" alt="Seta" />
-    </div>
-  </div>
 
-  <!-- Stories -->
-  <div class="stories-container">
-    <div class="story">
-      <img src="foto2.jpg" alt="Story 1" class="story-image" />
+    <!-- Stories container (agora abaixo da div cima) -->
+    <div class="stories-container"> <!-- Cria um contêiner com a classe "stories-container" para organizar os stories -->
+        <div class="story"> <!-- Cria uma div com a classe "story" para representar um story -->
+            <img src="foto.2jpg" alt="Story 1" class="story-image"> <!-- Exibe uma imagem dentro do story, com a classe "story-image" -->
+        </div>
+        <div class="story"> <!-- Cria outro story -->
+            <img src="foto.3jpg" alt="Story 2" class="story-image"> <!-- Exibe outra imagem dentro de outro story -->
+        </div>
+        <div class="story"> <!-- Cria outro story -->
+            <img src="foto.4jpg" alt="Story 3" class="story-image"> <!-- Exibe outra imagem dentro de mais um story -->
+        </div>
     </div>
-    <div class="story">
-      <img src="foto3.jpg" alt="Story 2" class="story-image" />
-    </div>
-    <div class="story">
-      <img src="foto4.jpg" alt="Story 3" class="story-image" />
-    </div>
-  </div>
 
-  <!-- Imagem com link - PROPORÇÃO ORIGINAL MANTIDA -->
-  <div class="imagens-container">
-    <a href="https://danfenx.github.io/fotodb/" class="imagem-item">
-      <img src="foto1.jpg" alt="Imagem 1" class="imagem" />
+   <!-- Novo contêiner de imagens com borda quadrada, agora dentro de uma tag <a> -->
+    <a href="https://danfenx.github.io/fotodb/" class="imagens-container">
+        <div class="imagem-item">
+            <img src="Foto1.jpg" alt="Imagem 1" class="imagem">
+        </div>
     </a>
-  </div>
 
-  <!-- Questionário -->
-  <h2>Questionário dos Noivos</h2>
-  <p>
-    Iremos testar seus conhecimentos a respeito dos noivos. Não se preocupe
-    com as respostas... a ideia é se divertir! 🥰
-  </p>
+    <h2>Questionário dos noivos</h2>
+ 
+    <p>Iremos testar seus conhecimentos a respeito dos noivos, não se preocupe com as respostas... a ideia é se divertir! 🥰</p>
 
-  <!-- NOIVO -->
-  <div class="questionario-container">
-    <h3>Curiosidades do Noivo</h3>
-    <form class="questionario noivo">
-      <div class="pergunta">
-        <label>1. Qual é a cor favorita?</label>
-        <select name="cor-favorita-noivo">
-          <option value="azul">Azul</option>
-          <option value="vermelho">Vermelho</option>
-          <option value="verde">Verde</option>
-          <option value="amarelo">Amarelo</option>
-        </select>
-      </div>
-      <div class="pergunta">
-        <label>2. Prefere café, Leite com Nescau ou chá?</label><br />
-        <input type="radio" name="bebida_noivo" value="cafe" /> Café
-        <input type="radio" name="bebida_noivo" value="nescau" /> Leite com Nescau
-        <input type="radio" name="bebida_noivo" value="cha" /> Chá
-      </div>
-      <div class="pergunta">
-        <label>3. Prefere Cachorro, Pássaro ou Gato?</label><br />
-        <input type="radio" name="animal_noivo" value="Cachorro" /> Cachorro
-        <input type="radio" name="animal_noivo" value="Passaro" /> Pássaro
-        <input type="radio" name="animal_noivo" value="Gato" /> Gato
-      </div>
-      <div class="pergunta">
-        <label>4. Marque a atividade que ele mais gosta:</label><br />
-        <input type="radio" name="atividade_noivo" value="ler" /> Ler
-        <input type="radio" name="atividade_noivo" value="viajar" /> Viajar
-        <input type="radio" name="atividade_noivo" value="esportes" /> Praticar esportes
-      </div>
-      <div class="pergunta">
-        <label>5. Qual é o gênero de filme favorito?</label><br />
-        <input type="radio" name="filme_noivo" value="acao" /> Ação
-        <input type="radio" name="filme_noivo" value="comedia" /> Comédia
-        <input type="radio" name="filme_noivo" value="aventura" /> Aventura
-      </div>
-      <div class="pergunta">
-        <label>6. Se houvesse um apocalipse zumbi, para onde ele fugiria?</label><br />
-        <input type="radio" name="local_noivo" value="ilha" /> Ilha deserta
-        <input type="radio" name="local_noivo" value="bunker" /> Bunker
-        <input type="radio" name="local_noivo" value="shopping" /> Shopping
-      </div>
-    </form>
-  </div>
+    <div class="questionario-container">
+        <h3>Curiosidades Noivo</h3>
+        <form class="questionario noivo">
+            <div class="pergunta">
+                <label>1. Qual é a cor favorita?</label>
+                <select name="cor-favorita-noivo">
+                    <option value="azul">Azul</option>
+                    <option value="vermelho">Vermelho</option>
+                    <option value="verde">Verde</option>
+                    <option value="amarelo">Amarelo</option>
+                </select>
+            </div>
+            <div class="pergunta">
+                <label>2. Prefere café, Leite com Nescau ou chá?</label>
+                <input type="radio" name="bebida_noivo" value="cafe"> Café
+                <input type="radio" name="bebida_noivo" value="Leite com Nescau"> Leite com Nescau
+                <input type="radio" name="bebida_noivo" value="cha"> Chá
+            </div>
+            <div class="pergunta">
+                <label>3. Prefere Cachorro, Pássaro ou Gato?</label>
+                <input type="radio" name="animal" value="Cachorro"> Cachorro
+                <input type="radio" name="animal" value="Pássaro"> Pássaro
+                <input type="radio" name="animal" value="Gato"> Gato
+            </div>
+            <div class="pergunta">
+                <label>4. Marque a atividade que ele mais gosta:</label>
+                <input type="radio" name="atividade_noivo" value="ler"> Ler
+                <input type="radio" name="atividade_noivo" value="viajar"> Viajar
+                <input type="radio" name="atividade_noivo" value="Praticar esportes"> Praticar esportes
+            </div>
+            <div class="pergunta">
+                <label>5. Qual é o gênero de filme favorito:</label>
+                <input type="radio" name="filme_noivo" value="Ação"> Ação
+                <input type="radio" name="filme_noivo" value="Comédia"> Comédia
+                <input type="radio" name="filme_noivo" value="Aventura"> Aventura
+            </div>
+            <div class="pergunta">
+                <label>6. Se houvesse um apocalipse zumbi, para onde ele fugiria?</label>
+                <input type="radio" name="Local_noivo" value="Ilha deserta"> Ilha deserta
+                <input type="radio" name="Local_noivo" value="Banker"> Banker
+                <input type="radio" name="Local_noivo" value="Shopping"> Shopping
+            </div>
+        </form>
+    </div>
 
-  <!-- NOIVA -->
-  <div class="questionario-container">
-    <h3>Curiosidades da Noiva</h3>
-    <form class="questionario noiva">
-      <div class="pergunta">
-        <label>1. Qual é a cor favorita?</label>
-        <select name="cor-favorita-noiva">
-          <option value="rosa">Rosa</option>
-          <option value="preto">Preto</option>
-          <option value="lilas">Lilás</option>
-          <option value="amarelo">Amarelo</option>
-        </select>
-      </div>
-      <div class="pergunta">
-        <label>2. Prefere café, Leite com Nescau ou chá?</label><br />
-        <input type="radio" name="bebida_noiva" value="cafe" /> Café
-        <input type="radio" name="bebida_noiva" value="nescau" /> Leite com Nescau
-        <input type="radio" name="bebida_noiva" value="cha" /> Chá
-      </div>
-      <div class="pergunta">
-        <label>3. Prefere Cachorro, Calopsita ou Gato?</label><br />
-        <input type="radio" name="animal_noiva" value="Cachorro" /> Cachorro
-        <input type="radio" name="animal_noiva" value="Calopsita" /> Calopsita
-        <input type="radio" name="animal_noiva" value="Gato" /> Gato
-      </div>
-      <div class="pergunta">
-        <label>4. Marque a atividade que ela mais gosta:</label><br />
-        <input type="radio" name="atividade_noiva" value="ler" /> Ler
-        <input type="radio" name="atividade_noiva" value="viajar" /> Viajar
-        <input type="radio" name="atividade_noiva" value="tv" /> Assistir TV
-      </div>
-      <div class="pergunta">
-        <label>5. Qual é o gênero de filme favorito?</label><br />
-        <input type="radio" name="filme_noiva" value="acao" /> Ação
-        <input type="radio" name="filme_noiva" value="comedia" /> Comédia
-        <input type="radio" name="filme_noiva" value="romance" /> Romance
-      </div>
-      <div class="pergunta">
-        <label>6. Se houvesse um apocalipse zumbi, para onde ela fugiria?</label><br />
-        <input type="radio" name="local_noiva" value="ilha" /> Ilha deserta
-        <input type="radio" name="local_noiva" value="bunker" /> Bunker
-        <input type="radio" name="local_noiva" value="shopping" /> Shopping
-      </div>
-    </form>
-  </div>
+    <div class="questionario-container">
+        <h3>Curiosidades Noiva</h3>
+        <form class="questionario noiva">
+            <div class="pergunta">
+                <label>1. Qual é a cor favorita?</label>
+                <select name="cor-favorita-noiva">
+                    <option value="Rosa">Rosa</option>
+                    <option value="Preto">Preto</option>
+                    <option value="Lilás">Lilás</option>
+                    <option value="amarelo">Amarelo</option>
+                </select>
+            </div>
+            <div class="pergunta">
+                <label>2. Prefere café, Leite com Nescau ou chá?</label>
+                <input type="radio" name="bebida_noiva" value="cafe"> Café
+                <input type="radio" name="bebida_noiva" value="Leite com Nescau"> Leite com Nescau
+                <input type="radio" name="bebida_noiva" value="cha"> Chá
+            </div>
+            <div class="pergunta">
+                <label>3. Prefere Cachorro, Calopsita ou Gato?</label>
+                <input type="radio" name="animal_noiva" value="Cachorro"> Cachorro
+                <input type="radio" name="animal_noiva" value="Calopsita"> Calopsita
+                <input type="radio" name="animal_noiva" value="Gato"> Gato
+            </div>
+            <div class="pergunta">
+                <label>4. Marque a atividade que ela mais gosta:</label>
+                <input type="radio" name="atividade_noiva" value="ler"> Ler
+                <input type="radio" name="atividade_noiva" value="viajar"> Viajar
+                <input type="radio" name="atividade_noiva" value="Assistir TV"> Assistir TV
+            </div>
+            <div class="pergunta">
+                <label>5. Qual é o gênero de filme favorito:</label>
+                <input type="radio" name="filme_noiva" value="Ação"> Ação
+                <input type="radio" name="filme_noiva" value="Comédia"> Comédia
+                <input type="radio" name="filme_noiva" value="Românce"> Românce
+            </div>
+            <div class="pergunta">
+                <label>6. Se houvesse um apocalipse zumbi, para onde ela fugiria?</label>
+                <input type="radio" name="Local_noiva" value="Ilha deserta"> Ilha deserta
+                <input type="radio" name="Local_noiva" value="Banker"> Banker
+                <input type="radio" name="Local_noiva" value="Shopping"> Shopping
+            </div>
+        </form>
+    </div>
 
-  <!-- Botão e resultado -->
-  <button class="enviar" onclick="calcularPontuacao()">Enviar Respostas</button>
-  <div id="resultado"></div>
+    <button class="enviar" onclick="calcularPontuacao()">Enviar Respostas</button>
 
-  <!-- Rodapé -->
-  <div class="banner">
-    <h4>InstaD&B</h4>
-  </div>
+    <div id="resultado"></div>
+    
 
-  <script src="index.js"></script>
+     <div class="banner">
+        <div>
+            <h4>InstaD&B</h4> <!-- Exibe uma saudação no banner -->
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
